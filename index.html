@@ -1,0 +1,25 @@
+<?php require_once 'header.php'; ?>
+
+<h1 style="text-align:center; margin:30px 0;">Товары</h1>
+
+<div class="grid">
+    <?php
+    // Простой массив товаров (можно заменить на БД позже)
+    $products = [
+        ['name' => 'Смартфон', 'price' => 19990, 'img' => '📱'],
+        ['name' => 'Наушники', 'price' => 3490, 'img' => '🎧'],
+        ['name' => 'Часы', 'price' => 5990, 'img' => '⌚'],
+        ['name' => 'Ноутбук', 'price' => 44990, 'img' => '💻']
+    ];
+    foreach ($products as $p):
+    ?>
+    <div class="card">
+        <div class="img"><?= $p['img'] ?></div>
+        <h3><?= htmlspecialchars($p['name']) ?></h3>
+        <div class="price"><?= number_format($p['price'], 0, '', ' ') ?> ₽</div>
+        <button class="btn">В корзину</button>
+    </div>
+    <?php endforeach; ?>
+</div>
+
+<?php require_once 'footer.php'; ?>
